@@ -3,13 +3,13 @@ import { createDiary } from "../../dao/diary/diaryDao.js";
 
 const diaryUpload = async (req, res) => {
 
-    const { title, content } = req.body;
+    const { content } = req.body;
     const rid = req.id;
     console.log("req.id: ", req.id);
 
     try {
         const conn = await pool.getConnection();
-        const params = [rid, title, content];
+        const params = [rid, content];
         
         // 일기 등록 sql
         const [newDiary] = await createDiary(conn, params);
