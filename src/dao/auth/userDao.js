@@ -22,3 +22,11 @@ export const readUser = async (conn, id) => {
     const user = await conn.query(readUserSql, [id]);
     return user;
 };
+
+// rid -> id
+export const readUserID = async (conn, rid) => {
+    const readUserIDSql = `SELECT id FROM User WHERE rid=?;`;
+
+    const id = await conn.query(readUserIDSql, [rid]);
+    return id;
+};

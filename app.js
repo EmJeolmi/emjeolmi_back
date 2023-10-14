@@ -15,12 +15,15 @@ app.use(express.json({
     limit : '50mb'
 }));
 
-const corsOptions = {
-    origin: 'http://3.34.72.88/',
-    credentials: true
-}
+const allowedOrigins = ["http://localhost:3000"]; // 허용할 도메인을 배열로 지정
 
-app.use(cors(corsOptions));
+app.use(
+  cors({
+    origin: allowedOrigins, // allowedOrigins 배열에 있는 도메인만 허용
+    credentials: true, // 인증 정보(쿠키 등)를 요청에 포함
+    exposedHeaders: ["Authorization"], // 노출할 헤더 설정
+  })
+);
 
 app.use('/', router);
 
