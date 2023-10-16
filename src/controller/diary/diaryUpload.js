@@ -1,7 +1,7 @@
 import pool from "../../config/database.js";
 import { createDiary } from "../../dao/diary/diaryDao.js";
 
-const diaryUpload = async (req, res) => {
+export const diaryUpload = async (req, res) => {
 
     const { content } = req.body;
     const rid = req.id;
