@@ -19,7 +19,6 @@ const updateVisitorInfo = async (conn, VisitId, UserId) => {
     
     conn.release();
     return true;
-
     } catch (error) {
         console.error('Error updating visitor info:', error);
         return false;
