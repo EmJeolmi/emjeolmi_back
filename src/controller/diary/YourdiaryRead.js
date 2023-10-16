@@ -1,5 +1,5 @@
 import { readDiary } from "../../dao/diary/diaryDao.js";
-import { readUser } from "../../dao/auth/userDao.js";
+import { readUser, readUserID } from "../../dao/auth/userDao.js";
 import { updateVisitorInfo } from "../../dao/visitor/visitorDao.js"; // Visitor 정보 업데이트를 위한 DAO 추가
 
 const YourdiaryRead = async (req, res) => {
