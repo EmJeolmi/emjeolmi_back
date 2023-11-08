@@ -1,12 +1,12 @@
 import pool from "../../config/database.js";
 
 // 일기장에 접속한 사용자의 RID에 대응하는 방문자 ID 배열을 가져오는 함수
-const getVisitorsByUserRid = async (userRid) => {
+const getVisitorsByUserRid = async (userId) => {
     try {
         const conn = await pool.getConnection();
-        const query = 'SELECT visit_id FROM Visitor WHERE rid = ?';
+        const query = `SELECT visit_id FROM Visitor WHERE user_id = ?`;
 
-        const [visitors] = await conn.query(query, userRid);
+        const [visitors] = await conn.query(query, [userId]);
         conn.release();
         
 
