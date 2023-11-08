@@ -15,7 +15,7 @@ app.use(express.json({
     limit : '50mb'
 }));
 
-const allowedOrigins = ["http://localhost:3000"]; // 허용할 도메인을 배열로 지정
+const allowedOrigins = ["http://localhost:3000", "http://0.0.0.0:8000"]; // 허용할 도메인을 배열로 지정
 
 app.use(
   cors({

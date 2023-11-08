@@ -11,7 +11,7 @@ export const login = async (conn, id, password, res) => {
 
     // 사용자 정보 불러오기
     const [user] = await readUser(conn, id);
-    console.log('user: ', user);
+  //  console.log('user: ', user);
 
     // 비밀번호 일치 여부 확인
     const check = await bcrypt.compare(password, user[0].password);
