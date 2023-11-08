@@ -14,7 +14,7 @@ const updateVisitorInfo = async (conn, VisitId, UserId) => {
         await conn.query(insertQuery, ID);
         console.log("방문자 추가 완료");
     } else {
-        console.log("이미 방문한 적 있네요..");
+        // console.log("이미 방문한 적 있네요..");
     }
     
     conn.release();
