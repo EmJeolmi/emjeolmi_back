@@ -1,6 +1,6 @@
 // 일기 쓰기
 export const createDiary = async (conn, params) => {
-    const createDiarySql = `INSERT INTO Diary (rid, content, time) VALUES (?,?, DATE_ADD(now(), INTERVAL 9 HOUR));`;
+    const createDiarySql = `INSERT INTO Diary (rid, content, time, todaySummary) VALUES (?,?, DATE_ADD(now(), INTERVAL 9 HOUR), ?);`;
 
     const [newDiary] = await conn.query(createDiarySql, params);
     return [newDiary];
@@ -17,4 +17,12 @@ export const readDiary = async (conn, rid) => {
     const readDiary = 'SELECT * FROM Diary WHERE rid = ?';
     const [DiaryContent] = await conn.query(readDiary, rid);
     return [DiaryContent];
+}
+
+// 일기 내용 분석 결과 테이블 추가
+export const insertSentiment = async (conn, params) => {
+    const insertSentimentSql = `INSERT INTO Diary (todaySummary) VALUES (?);`;
+
+    const [DiarySentiment] = await conn.query(insertSentimentSql, params);
+    return [DiarySentiment];
 }

@@ -17,7 +17,7 @@ router.get('/MydiaryRead', authJWT, MydiaryRead);
 
 // 상대방 일기 읽어오기
 // POST /api/diary/자신의 ID
-// router.get('/:id', authJWT, YourdiaryRead);
+router.get('/:id', authJWT, YourdiaryRead);
 
 // 24시간 지난 일기 삭제
 // POST /api/diary/diaryDelete
